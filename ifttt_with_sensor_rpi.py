@@ -40,10 +40,10 @@ def read_tmp_sensor():
 # rest interface setting
 key = os.getenv("maker_key")
 event = os.getenv("maker_event_store_sensor")
+trigger_url = 'https://maker.ifttt.com/trigger/' + event + '/with/key/' + key
 
 # ifttt(maker)
 def trigger_ifttt():
-    trigger_url = 'https://maker.ifttt.com/trigger/' + event + '/with/key/' + key
     # post data
     current = str(datetime.now())
     humanExists = int(GPIO.input(17) == GPIO.HIGH)
