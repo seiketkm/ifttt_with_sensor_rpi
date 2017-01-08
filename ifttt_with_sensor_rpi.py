@@ -37,11 +37,12 @@ def read_tmp_sensor():
         temperature = ( (~data&0xfff) + 1)*-0.0625
     return temperature
 
+# rest interface setting
+key = os.getenv("maker_key")
+event = os.getenv("maker_event_store_sensor")
+
 # ifttt(maker)
 def trigger_ifttt():
-    # rest interface setting
-    key = os.getenv("maker_key")
-    event = 'store_sensor_data'
     trigger_url = 'https://maker.ifttt.com/trigger/' + event + '/with/key/' + key
     # post data
     current = str(datetime.now())
