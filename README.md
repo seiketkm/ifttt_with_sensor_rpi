@@ -1,0 +1,16 @@
+# ifttt_with_sensor_rpi
+IFTTT makerチャネルを利用したsensorデータの収集
+
+# How to use
+## IFTTTでAppletを作成
+MakerサービスをThisに設定し"Receive a web request"をTriggerに動くAppletを作成する
+## IFTTTのMakerチャネル
+https://ifttt.com/services/maker/settings を開いて`https://maker.ifttt.com/use/{maker_key}` のmaker_keyを取得
+## maker_keyを環境変数に設定
+`export maker_key=ifttt_maker_channel`
+## 実行
+10秒ごとにiftttのmakerがトリガされます。
+Makerサービスを利用して３つ値が渡せるので以下を渡している。
+value1はRPiの現在時刻
+value2はGPIO17の値
+value3はI2Cで温度センサの値
